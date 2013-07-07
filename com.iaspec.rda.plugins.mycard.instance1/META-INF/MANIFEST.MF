@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RDA Plugins - mycard Instance1
+Bundle-SymbolicName: com.iaspec.rda.plugins.mycard.instance1
+Bundle-Version: 1.0
+Bundle-Activator: com.iaspec.rda.plugins.mycard.instance1.MycardInstanceActivator
+Bundle-Vendor: IASPEC
+DynamicImport-Package: *
+Service-Component: OSGI-INF/component.xml
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.jboss.netty;bundle-version="3.6.1"
+Import-Package: com.iaspec.rda.foundation.common.server,
+ com.iaspec.rda.plugins.mycard.util,
+ org.slf4j
+Bundle-ClassPath: .,
+ lib/qpid-client-0.20.jar,
+ lib/qpid-common-0.20.jar,
+ lib/dom4j-1.6.1.jar,
+ target/classes/,
+ lib/geronimo-jms_1.1_spec-1.0.jar

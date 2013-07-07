@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RDA Main
+Bundle-SymbolicName: com.iaspec.rda.main
+Bundle-Version: 1.0
+Bundle-ClassPath: target/classes/,
+ .
+Bundle-Vendor: IASPEC
+Export-Package: com.iaspec.rda.main
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Service-Component: OSGI-INF/component.xml
+Import-Package: com.iaspec.rda.foundation,
+ com.iaspec.rda.foundation.common.server,
+ com.iaspec.rda.foundation.common.server.netty,
+ com.iaspec.rda.foundation.log,
+ com.iaspec.rda.foundation.message,
+ com.iaspec.rda.foundation.message.impl,
+ com.iaspec.rda.foundation.message.impl.bdb,
+ com.iaspec.rda.foundation.message.impl.memory,
+ com.iaspec.rda.foundation.utils,
+ org.eclipse.osgi.framework.console;version="1.1.0",
+ org.osgi.framework;version="1.3.0",
+ org.slf4j
+

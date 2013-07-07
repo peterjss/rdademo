@@ -1,4 +1,2 @@
-rdademo
-=======
-
-the rda demo with netty framework.
+nio_netty
+=========

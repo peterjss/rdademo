@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!-- Server Name -->
+    <server>RDA_MYCARD_P1</server>
+
+    <!-- Server Host -->
+    <host>localhost</host>
+
+    <!-- Server Port -->
+    <port>9997</port>
+
+    <!-- Session timeout (Second) -->
+    <sessiontimeout>60</sessiontimeout>
+</root>

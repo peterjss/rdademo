@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RDA Plugins - mycard
+Bundle-SymbolicName: com.iaspec.rda.plugins.mycard
+Bundle-Version: 1.0
+Bundle-Vendor: IASPEC
+Service-Component: OSGI-INF/component.xml
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Activator: com.iaspec.rda.plugins.mycard.MycardActivator
+DynamicImport-Package: *
+Require-Bundle: org.jboss.netty;bundle-version="3.6.1",
+ org.eclipse.equinox.common;bundle-version="3.6.100"
+Import-Package: com.iaspec.rda.foundation,
+ com.iaspec.rda.foundation.common.protocol,
+ com.iaspec.rda.foundation.common.securechat,
+ com.iaspec.rda.foundation.common.server,
+ com.iaspec.rda.foundation.common.server.netty,
+ com.iaspec.rda.foundation.log,
+ com.iaspec.rda.foundation.message,
+ com.iaspec.rda.foundation.message.impl,
+ com.iaspec.rda.foundation.message.impl.bdb,
+ com.iaspec.rda.foundation.message.impl.memory,
+ com.iaspec.rda.foundation.utils,
+ org.slf4j
+Export-Package: com.iaspec.rda.plugins.mycard.external.protocol,
+ com.iaspec.rda.plugins.mycard.external.server,
+ com.iaspec.rda.plugins.mycard.util
+Bundle-ClassPath: .,
+ lib/dom4j-1.6.1.jar,
+ lib/iaspec_rda_certificate_util-1.0.jar,
+ lib/je-5.0.58.jar,
+ target/classes/
+
+

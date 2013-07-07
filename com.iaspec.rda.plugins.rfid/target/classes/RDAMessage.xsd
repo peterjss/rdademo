@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2012 iASPEC. All Rights Reserved.
+  -->
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iaspec.com/RDAMessage"
+        xmlns:tns="http://www.iaspec.com/RDAMessage" elementFormDefault="qualified">
+    <complexType name="SimpleValueType">
+        <attribute name="value" type="string" use="required"></attribute>
+    </complexType>
+    <complexType name="RDAMessage">
+        <sequence>
+            <element name="SESSION_ID" type="tns:SimpleValueType" maxOccurs="1" minOccurs="0"></element>
+            <choice>
+                <sequence>
+                    <element name="SERVER_ID" type="tns:SimpleValueType" maxOccurs="1" minOccurs="1"></element>
+                </sequence>
+                <sequence>
+                    <element name="DEVICE_TYPE" type="tns:SimpleValueType" maxOccurs="1" minOccurs="1"></element>
+                    <element name="DEVICE_ID" type="tns:SimpleValueType" maxOccurs="1" minOccurs="1"></element>
+                </sequence>
+            </choice>
+            <element ref="tns:MessageIdentifier" maxOccurs="1" minOccurs="1"></element>
+        </sequence>
+        <attribute name="type" type="tns:RDAMessageTypeAttrib" use="required">
+        </attribute>
+    </complexType>
+    <simpleType name="RDAMessageTypeAttrib">
+        <restriction base="string">
+            <enumeration value="REQ"></enumeration>
+            <enumeration value="RSP"></enumeration>
+        </restriction>
+    </simpleType>
+    <complexType name="EmptyElementType">
+    </complexType>
+    <complexType name="DataTransmissionType">
+        <sequence>
+            <any processContents="skip"></any>
+        </sequence>
+        <attribute name="sequence" type="short" use="required"></attribute>
+    </complexType>
+    <complexType name="ADType">
+        <sequence>
+            <element name="CHALLENGE" type="tns:SimpleBas64AttribType" maxOccurs="1" minOccurs="1"></element>
+        </sequence>
+    </complexType>
+    <complexType name="ACType">
+        <sequence>
+            <element name="CHALLENGE" type="tns:SimpleValueType" maxOccurs="1" minOccurs="1"></element>
+        </sequence>
+    </complexType>
+    <complexType name="SimpleBas64AttribType">
+        <attribute name="value" type="base64Binary" use="required"></attribute>
+    </complexType>
+    <complexType name="ErrorType">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="value" type="string" use="required"></attribute>
+            </extension>
+        </simpleContent>
+    </complexType>
+    <complexType name="SequenceElementType">
+        <attribute name="sequence" type="short" use="required"></attribute>
+    </complexType>
+    <complexType name="DNType">
+        <complexContent>
+            <extension base="tns:SequenceElementType">
+                <sequence>
+                    <element name="ERROR" type="tns:ErrorType" maxOccurs="1" minOccurs="1"></element>
+                    <element name="SEQ" type="tns:SequenceElementType" maxOccurs="1" minOccurs="0"></element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="SimpleErrorElementType">
+        <sequence>
+            <element name="ERROR" type="tns:ErrorType" maxOccurs="1" minOccurs="0"></element>
+        </sequence>
+    </complexType>
+    <element name="RDA" type="tns:RDAMessage"></element>
+    <element name="MessageIdentifier" abstract="true"></element>
+    <element name="AC" type="tns:ACType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="AD" type="tns:ADType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="DN" type="tns:DNType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="AR" type="tns:EmptyElementType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="AA" type="tns:EmptyElementType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="AN" type="tns:SimpleErrorElementType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="DS" type="tns:DataTransmissionType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="DA" type="tns:SequenceElementType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="DP" type="tns:DataTransmissionType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="SK" type="tns:EmptyElementType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="SA" type="tns:EmptyElementType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="SN" type="tns:SimpleErrorElementType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="SC" type="tns:EmptyElementType" substitutionGroup="tns:MessageIdentifier"></element>
+    <element name="SS" type="tns:SimpleErrorElementType" substitutionGroup="tns:MessageIdentifier"></element>
+</schema>

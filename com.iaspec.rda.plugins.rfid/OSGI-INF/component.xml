@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.iaspec.rda.plugins.rfid">
+
+    <implementation class="com.iaspec.rda.plugins.rfid.RFIDIchManager" name="RFIDIchManager"/>
+    <service>
+        <provide interface="com.iaspec.rda.foundation.common.server.IIchManager"/>
+    </service>
+    <reference bind="addIchServer" cardinality="1..n"
+               interface="com.iaspec.rda.plugins.rfid.external.server.IRFIDIchServer"
+               name="IRFIDIchServer" policy="dynamic" unbind="removeIchServer"/>
+
+</scr:component>

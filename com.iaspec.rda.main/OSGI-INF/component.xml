@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.iaspec.rda.main">
+
+    <implementation class="com.iaspec.rda.main.RDAManager"/>
+    <service>
+        <provide interface="org.eclipse.osgi.framework.console.CommandProvider"/>
+    </service>
+    <reference bind="addIchManager" cardinality="1..n" interface="com.iaspec.rda.foundation.common.server.IIchManager"
+               name="IchManager" policy="dynamic" unbind="removeIchManager"/>
+
+
+</scr:component>
