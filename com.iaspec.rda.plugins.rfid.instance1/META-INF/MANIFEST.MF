@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RDA Plugins - RFID Instance1
+Bundle-SymbolicName: com.iaspec.rda.plugins.rfid.instance1
+Bundle-Version: 1.0
+Bundle-ClassPath: .,
+ lib/dom4j-1.6.1.jar,
+ target/classes/,
+ lib/geronimo-jms_1.1_spec-1.0.jar,
+ lib/qpid-client-0.20.jar,
+ lib/qpid-common-0.20.jar
+Bundle-Activator: com.iaspec.rda.plugins.rfid.instance1.RFIDInstanceActivator
+Bundle-Vendor: IASPEC
+Require-Bundle: org.eclipse.equinox.common;bundle-version="3.6.100.v20120522-1841"
+Import-Package: com.iaspec.rda.foundation.common.server,
+ com.iaspec.rda.plugins.rfid.util,
+ org.osgi.framework;version="1.3.0",
+ org.slf4j
+DynamicImport-Package: *
+Service-Component: OSGI-INF/component.xml
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

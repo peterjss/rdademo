@@ -1,0 +1,41 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: RDA Plugins - RFID
+Bundle-SymbolicName: com.iaspec.rda.plugins.rfid
+Bundle-Version: 1.0
+Bundle-Vendor: IASPEC
+Service-Component: OSGI-INF/component.xml
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.jboss.netty,
+ org.eclipse.equinox.common
+Import-Package: com.iaspec.rda.foundation,
+ com.iaspec.rda.foundation.common.protocol,
+ com.iaspec.rda.foundation.common.securechat,
+ com.iaspec.rda.foundation.common.server,
+ com.iaspec.rda.foundation.common.server.netty,
+ com.iaspec.rda.foundation.log,
+ com.iaspec.rda.foundation.message,
+ com.iaspec.rda.foundation.message.impl,
+ com.iaspec.rda.foundation.message.impl.bdb,
+ com.iaspec.rda.foundation.message.impl.memory,
+ com.iaspec.rda.foundation.utils,
+ org.osgi.framework,
+ org.slf4j
+Export-Package: com.iaspec.rda.plugins.rfid.external.protocol,
+ com.iaspec.rda.plugins.rfid.external.server,
+ com.iaspec.rda.plugins.rfid.util
+Bundle-ClassPath: .,
+ lib/dom4j-1.6.1.jar,
+ target/classes/,
+ lib/rfid-dlc.jar,
+ lib/commons-logging-1.1.1.jar,
+ lib/bcprov-jdk15on-147.jar,
+ lib/je-5.0.58.jar,
+ lib/bcpkix-jdk15on-147.jar,
+ lib/iaspec_rda_certificate_util-1.0.jar,
+ lib/commons-io-1.4.jar
+Bundle-Activator: com.iaspec.rda.plugins.rfid.RFIDActivator
+DynamicImport-Package: *
+
+

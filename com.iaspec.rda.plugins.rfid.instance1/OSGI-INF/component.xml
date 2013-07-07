@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.iaspec.rda.plugins.rfid.instance1">
+
+    <implementation class="com.iaspec.rda.plugins.rfid.instance1.RFIDIchServer"/>
+    <service>
+        <provide interface="com.iaspec.rda.plugins.rfid.external.server.IRFIDIchServer"/>
+    </service>
+
+</scr:component>
